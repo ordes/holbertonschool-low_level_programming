@@ -19,5 +19,7 @@ int main(void)
 		putchar(c);
 	}
 
+	putchar('\n'); /* Print newline at the end */
+
 	return (0);
 }
