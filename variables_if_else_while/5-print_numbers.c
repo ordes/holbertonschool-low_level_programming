@@ -9,14 +9,12 @@
  */
 int main(void)
 {
-	char revalpha[] = "zyxwvutsrqponmlkjihgfedcba";
-	int x;
+	int i;
 
-	for (x = 0; x < 26; x++)
+	for (i = 0; i <= 9; i++)
 	{
-		putchar(revalpha[x]);
+		putchar(i + '0');
 	}
-
 	putchar('\n');
 
 	return (0);
