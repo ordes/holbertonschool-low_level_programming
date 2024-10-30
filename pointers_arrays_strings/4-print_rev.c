@@ -14,8 +14,10 @@ void print_rev(char *s)
 	{
 		last_index = i;
 	}
-	if (last_index == -1)
+	if (s[0] == '\0')
+	{
 		return;
+	}
 	for (i = last_index; i >= 0; i--)
 	{
 		_putchar(s[i]);
