@@ -1,4 +1,4 @@
-#include "main.h"
+#include"main.h"
 #include <stddef.h>
 
 /**
@@ -8,9 +8,13 @@
  * Return: NULL
  */
 
+
 char *_strchr(char *s, char c)
 {
-	unsigned int i;
+	int i;
+
+	if (c == '\0')
+		return ("");
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -19,4 +23,3 @@ char *_strchr(char *s, char c)
 	}
 	return (NULL);
 }
- 
