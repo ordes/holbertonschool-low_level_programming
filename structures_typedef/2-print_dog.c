@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include "dog.h"
+#include<stdio.h>
+#include"dog.h"
 
 /**
  * print_dog -entry point,function that prints a struct
  * @d: -points to repective address
  */
+
 
 void print_dog(struct dog *d)
 {
@@ -18,7 +19,7 @@ void print_dog(struct dog *d)
 	}
 	else
 		printf("Name: %s\n", d->name);
-	printf("Age %f\n", d->age);
+	printf("Age: %f\n", d->age);
 
 	if (d->owner == NULL)
 	{
@@ -26,4 +27,5 @@ void print_dog(struct dog *d)
 	}
 	else
 		printf("Owner: %s\n", d->owner);
+
 }
