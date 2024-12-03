@@ -42,9 +42,9 @@ list_t *add_node_end(list_t **head, const char *str)
 		free(dup_str);
 		return (NULL);
 	}
-	new_node->str = dup_str;
-	new_node->len = string_length(dup_str);
-	new_node->next = NULL;
+		new_node->str = dup_str;
+		new_node->len = string_length(dup_str);
+		new_node->next = NULL;
 
 	if (*head == NULL)
 	{
