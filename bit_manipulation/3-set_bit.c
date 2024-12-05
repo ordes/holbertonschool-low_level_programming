@@ -1,37 +1,17 @@
-#include"lists.h"
-#include<stdlib.h>
+#include"main.h"
 
 /**
- * add_dnodeint_end -adds new nod at the end
- * @head: -points to the respective structure
- * @n: -holds value for output
- * Return: (new)
+ * set_bit -sets bit to 1
+ * @n: -points to respective value
+ * @index: -holds value for output
+ * Return: (1)
  */
 
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+int set_bit(unsigned long int *n, unsigned int index)
 {
-	dlistint_t *new = malloc(sizeof(dlistint_t));
-	dlistint_t *virtual = *head;
+	if (index > sizeof(n) * 8)
+		return (-1);
 
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-
-	if (*head == NULL)
-	{
-		*head = new;
-		new->prev = NULL;
-		new->next = NULL;
-	}
-	else
-	{
-		while (virtual->next != NULL)
-		{
-			virtual = virtual->next;
-		}
-		virtual->next = new;
-		new->next = NULL;
-		new->prev = virtual;
-	}
-	return (new);
+	*n = *n | (1 << index);
+	return (1);
 }

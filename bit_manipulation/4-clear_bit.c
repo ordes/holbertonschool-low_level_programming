@@ -1,19 +1,21 @@
-#include"lists.h"
-#include<stdlib.h>
+#include"main.h"
 
 /**
- * free_dlistint -function that frees list
- * @head: -points to the first structure
+ * clear_bit -changes value of bit
+ * @n: -points to number
+ * @index: -holds value for output
+ * Return: (1)
  */
 
-void free_dlistint(dlistint_t *head)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
-	dlistint_t *helper;
+	unsigned long int helper = *n;
 
-	while (head != NULL)
-	{
-		helper = head;
-		head = head->next;
-		free(helper);
-	}
+	if (index > sizeof(n) * 8)
+		return (-1);
+
+	if ((helper >> index & 1) == 1)
+		*n = *n ^ 1 << index;
+
+	return (1);
 }

@@ -1,21 +1,29 @@
-#include"lists.h"
-#include<stdio.h>
-
+#include "main.h"
+#include <stdlib.h>
 /**
- * print_dlistint -prints all elements
- * @h: -points to the first node
- * Return: (count)
+ * binary_to_uint - function that converst a binary number to an unsigned int
+ * @b: pointer to a string of 0 and 1 chars
+ * Return: the converted number or 0 if there is one or more chars in the
+ * string b that is not 0 or 1, b is NULL
  */
-
-size_t print_dlistint(const dlistint_t *h)
+unsigned int binary_to_uint(const char *b)
 {
-	size_t count = 0;
+	unsigned int sum = 0, weight = 1;
+	int i, length = 0;
 
-	while (h != NULL)
+	if (b == NULL)
+		return (0);
+
+	while (b[length] != '\0')
+		length++;
+
+	for (i = (length - 1); i >= 0; i--)
 	{
-		count++;
-		printf("%d\n", h->n);
-		h = h->next;
+		if (b[i] != '0' && b[i] != '1')
+			return (0);
+		if (b[i] == '1')
+			sum = sum + weight;
+		weight = weight * 2;
 	}
-	return (count);
+	return (sum);
 }

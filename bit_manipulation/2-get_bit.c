@@ -1,26 +1,17 @@
-#include"lists.h"
-#include<stdlib.h>
+#include"main.h"
 
 /**
- * add_dnodeint -add a new node
- * @head: -points to the respective structure
+ * get_bit - gets git value at specific index
+ * @index: -holds value for output
  * @n: -holds value for output
- * Return: (new)
+ * Return: (a >> index & 1)
  */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+int get_bit(unsigned long int n, unsigned int index)
 {
-	dlistint_t *new = malloc(sizeof(dlistint_t));
-
-	if (new == NULL)
-		return (NULL);
-
-	new->n = n;
-	new->next = *head;
-	if (*head != NULL)
-		(*head)->prev = new;
-	*head = new;
-	new->prev = NULL;
-
-	return (new);
+	if (index > sizeof(n) * 8)
+	{
+		return (-1);
+	}
+	return (n >> index & 1);
 }

@@ -1,19 +1,17 @@
-#include"lists.h"
+#include"main.h"
 
 /**
- * dlistint_len -prints the number of nodes
- * @h: -points to the first node
- * Return: (count)
+ * print_binary -prints the binary rap of a nr
+ * @n: -holds value for output
  */
 
-size_t dlistint_len(const dlistint_t *h)
+void print_binary(unsigned long int n)
 {
-	size_t count = 0;
-
-	while (h != NULL)
+	if (n >> 1 == 0)
+		_putchar('0' + (n & 1));
+	else
 	{
-		count++;
-		h = h->next;
+		print_binary(n >> 1);
+		_putchar('0' + (n & 1));
 	}
-	return (count);
 }

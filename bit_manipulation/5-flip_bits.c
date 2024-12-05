@@ -1,23 +1,24 @@
-#include"lists.h"
+#include"main.h"
 
 /**
- * get_dnodeint_at_index -returns nth node pointer
- * @head: -points to the first node
- * @index: -holds value for output
- * Return: (head)
+ * flip_bits -interchanges the bits of 2 numbers
+ * @m: -holds value for output
+ * @n: -holds value for output
+ * Return: (count)
  */
 
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int i = 0;
+	unsigned long int x;
+	int count = 0;
 
-	while (head != NULL)
+	x = n ^ m;
+
+	while (x != 0)
 	{
-		if (i == index)
-			return (head);
-
-		head = head->next;
-		i++;
+		if ((x & 1) == 1)
+			count++;
+		x = x >> 1;
 	}
-	return (NULL);
+	return (count);
 }
